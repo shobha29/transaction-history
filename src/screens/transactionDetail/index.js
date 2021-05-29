@@ -4,7 +4,7 @@ import moment from "moment";
 import "./styles.scss";
 
 const TransactionDetail = (props) => {
-  const transaction = props.location.state.transaction;
+  const transaction = props.location.state.data;
 
   const startDate = new Date(transaction.startDate).getTime();
   const endDate = new Date(transaction.endDate).getTime();
@@ -50,10 +50,12 @@ const TransactionDetail = (props) => {
           </p>
         </div>
 
-        <div className="row">
-          <p className="title">Description</p>
-          <p className="content">{transaction.description}</p>
-        </div>
+        {transaction.description && (
+          <div className="row">
+            <p className="title">Description</p>
+            <p className="content">{transaction.description}</p>
+          </div>
+        )}
 
         <div className="row">
           <p className="title">Customer vPayId</p>

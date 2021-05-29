@@ -3,7 +3,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  //   height: 100vh;
 
   .inner-container {
     border: 1px solid black;
@@ -14,7 +13,7 @@
 
     .row {
       display: flex;
-      margin-bottom: 5px;
+      margin-bottom: 20px;
 
       .title {
         font-size: 18px;
@@ -27,20 +26,5 @@
         margin-left: 20px;
       }
     }
-
-    // div {
-
-    //   div {
-    //     flex-direction: column;
-    //   }
-
-    p {
-      // flex: 1;
-      margin-bottom: 20px;
-
-      span {
-      }
-    }
-    // }
   }
 }
