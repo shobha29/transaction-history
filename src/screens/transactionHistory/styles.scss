@@ -1,7 +1,70 @@
 .container {
-  padding: 20px 0;
   display: flex;
   flex-direction: column;
+
+  .header {
+    display: flex;
+    border-bottom: 1px solid black;
+    align-items: center;
+    padding: 5px 20px;
+    margin-bottom: 25px;
+
+    img {
+      width: 20px;
+      height: 20px;
+      margin-right: 20px;
+    }
+
+    .user-detail {
+      display: flex;
+
+      .profile {
+        width: 40px;
+        height: 40px;
+        background: rgb(162, 214, 178);
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 10px;
+      }
+
+      .name-phone {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        .phone {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+  .date {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 14px;
+
+    .left-line {
+      margin-right: 10px;
+    }
+
+    .right-line {
+      margin-left: 10px;
+    }
+
+    .horizontal-line {
+      border-bottom: 2px dotted black;
+      flex: 1;
+      height: 0.2px;
+    }
+
+    p {
+      background: white;
+    }
+  }
 
   .right-card {
     align-self: flex-end;
