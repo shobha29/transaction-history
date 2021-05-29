@@ -26,7 +26,7 @@ const TransactionHistory = (props) => {
       url: "https://dev.onebanc.ai/assignment.asmx/GetTransactionHistory?userId=1&recipientId=2",
     })
       .then((res) => {
-        const data = res.data.transactions;
+        const data = res?.data?.transactions;
         setTransactionList(
           Object.values(
             _.groupBy(data, (item) =>
@@ -44,7 +44,7 @@ const TransactionHistory = (props) => {
   }, []);
 
   const Card = (item) => {
-    const transaction = item.item;
+    const transaction = item?.item;
 
     const transactionDate = new Date(transaction[0].startDate).getTime();
     return (
@@ -54,23 +54,23 @@ const TransactionHistory = (props) => {
           <p>{moment(transactionDate).format("D MMM YYYY")}</p>
           <div className="horizontal-line right-line" />
         </div>
-        {transaction.map((data) => (
+        {transaction?.map((data) => (
           <div
             className={
-              data.direction === 1
+              data?.direction === 1
                 ? "card-container right-card"
                 : "card-container left-card"
             }
           >
             <div className="card">
               <div className="top">
-                <p className="top-left">{`₹ ${data.amount}`}</p>
+                <p className="top-left">{`₹ ${data?.amount}`}</p>
 
                 {data.status === 1 ? (
                   <div className="top-right">
                     <img src={exclamationMark} alt="forward-arrow" />
                     <p>
-                      {data.direction === 1
+                      {data?.direction === 1
                         ? "You requested"
                         : "Request received"}
                     </p>
@@ -78,14 +78,14 @@ const TransactionHistory = (props) => {
                 ) : (
                   <div className="top-right">
                     <img src={checkMark} alt="forward-arrow" />
-                    <p>{data.direction === 1 ? "You paid" : "You received"}</p>
+                    <p>{data?.direction === 1 ? "You paid" : "You received"}</p>
                   </div>
                 )}
               </div>
 
               <div className="bottom">
-                {data.status === 1 ? (
-                  data.direction === 1 ? (
+                {data?.status === 1 ? (
+                  data?.direction === 1 ? (
                     <div className="btn-container">
                       <div className="btn">
                         <p>Pay</p>
@@ -139,8 +139,8 @@ const TransactionHistory = (props) => {
               </div>
             </div>
           </div>
-          {transactionList.length !== 0 &&
-            transactionList.map((item) => <Card item={item} />)}
+          {transactionList?.length !== 0 &&
+            transactionList?.map((item) => <Card item={item} />)}
         </>
       )}
     </div>
