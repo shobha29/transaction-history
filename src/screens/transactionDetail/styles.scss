@@ -1,0 +1,46 @@
+.transaction-detail-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  //   height: 100vh;
+
+  .inner-container {
+    border: 1px solid black;
+    padding: 20px;
+    border-radius: 20px;
+    margin: 20px 0;
+    width: 400px;
+
+    .row {
+      display: flex;
+      margin-bottom: 5px;
+
+      .title {
+        font-size: 18px;
+        font-weight: bold;
+        flex: 1;
+      }
+
+      .content {
+        flex: 1;
+        margin-left: 20px;
+      }
+    }
+
+    // div {
+
+    //   div {
+    //     flex-direction: column;
+    //   }
+
+    p {
+      // flex: 1;
+      margin-bottom: 20px;
+
+      span {
+      }
+    }
+    // }
+  }
+}
