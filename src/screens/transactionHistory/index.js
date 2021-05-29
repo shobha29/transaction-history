@@ -8,19 +8,22 @@ import {
   exclamationMark,
   checkMark,
   backArrow,
+  loader,
 } from "../../asserts";
 
 import "./styles.scss";
 
 const TransactionHistory = (props) => {
   const { history = {} } = props || {};
+
   const [transactionList, setTransactionList] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     axios({
       method: "get",
-      url:
-        "https://dev.onebanc.ai/assignment.asmx/GetTransactionHistory?userId=1&recipientId=2",
+      url: "https://dev.onebanc.ai/assignment.asmx/GetTransactionHistory?userId=1&recipientId=2",
     })
       .then((res) => {
         const data = res.data.transactions;
@@ -31,9 +34,12 @@ const TransactionHistory = (props) => {
             )
           )
         );
+
+        setIsLoading(false);
       })
       .catch((err) => {
         alert("Error while fetching data");
+        setIsLoading(false);
       });
   }, []);
 
@@ -119,18 +125,24 @@ const TransactionHistory = (props) => {
 
   return (
     <div className="container">
-      <div className="header">
-        <img src={backArrow} alt="back arrow" />
-        <div className="user-detail">
-          <div className="profile">J</div>
-          <div className="name-phone">
-            <p className="name">John Deo</p>
-            <p className="phone">+91 7672 2345</p>
+      {isLoading ? (
+        <img className="loader" src={loader} alt="loader" />
+      ) : (
+        <>
+          <div className="header">
+            <img src={backArrow} alt="back arrow" />
+            <div className="user-detail">
+              <div className="profile">J</div>
+              <div className="name-phone">
+                <p className="name">John Deo</p>
+                <p className="phone">+91 7672 2345</p>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      {transactionList.length !== 0 &&
-        transactionList.map((item) => <Card item={item} />)}
+          {transactionList.length !== 0 &&
+            transactionList.map((item) => <Card item={item} />)}
+        </>
+      )}
     </div>
   );
 };

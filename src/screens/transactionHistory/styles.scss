@@ -2,6 +2,15 @@
   display: flex;
   flex-direction: column;
 
+  .loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+  }
+
   .header {
     display: flex;
     border-bottom: 1px solid black;
@@ -122,6 +131,7 @@
           border-radius: 5px;
           padding: 5px 30px;
           margin-right: 10px;
+          cursor: pointer;
         }
 
         img {
@@ -129,6 +139,7 @@
           height: 40px;
           position: relative;
           left: 15px;
+          cursor: pointer;
         }
       }
     }

@@ -15,6 +15,7 @@ const TransactionDetail = (props) => {
 
   return (
     <div className="transaction-detail-container">
+      <h2>Transaction Detail</h2>
       <div className="inner-container">
         <div className="row">
           <p className="title">Amount</p>
